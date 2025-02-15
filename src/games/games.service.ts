@@ -12,16 +12,14 @@ export class GamesService {
     private readonly gameRepository: GameRepository,
   ) {}
 
-  async create(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    createGameDto: CreateGameDto,
-  ) {
+  async create(createGameDto: CreateGameDto) {
     // Do not remove comment below.
     // <creating-property />
 
     return this.gameRepository.create({
       // Do not remove comment below.
       // <creating-property-payload />
+      status: createGameDto.status,
     });
   }
 
@@ -48,7 +46,7 @@ export class GamesService {
 
   async update(
     id: Game['id'],
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     updateGameDto: UpdateGameDto,
   ) {
     // Do not remove comment below.
@@ -57,6 +55,7 @@ export class GamesService {
     return this.gameRepository.update(id, {
       // Do not remove comment below.
       // <updating-property-payload />
+      status: updateGameDto.status,
     });
   }
 
